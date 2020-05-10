@@ -1,0 +1,44 @@
+{
+    "name": "lukehopkins/order-samples",
+    "description": "A plugin for ordering samples",
+    "type": "craft-plugin",
+    "version": "1.0.0",
+    "keywords": [
+        "craft",
+        "cms",
+        "craftcms",
+        "craft-plugin",
+        "order samples"
+    ],
+    "support": {
+        "docs": "https://github.com/luke-hopkins/craft-order-samples/blob/master/README.md",
+        "issues": "https://github.com/luke-hopkins/craft-order-samples/issues"
+    },
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Luke Hopkins",
+            "homepage": "https://github.com/luke-hopkins"
+        }
+    ],
+    "require": {
+        "craftcms/cms": "^3.0.0"
+    },
+    "autoload": {
+        "psr-4": {
+          "lukehopkins\\ordersamples\\": "src/"
+        }
+    },
+    "extra": {
+        "name": "Order Samples",
+        "handle": "order-samples",
+        "developer": "Luke Hopkins",
+        "developerUrl": "https://github.com/luke-hopkins",
+        "documentationUrl": "https://github.com/luke-hopkins/craft-order-samples/blob/master/README.md",
+        "changelogUrl": "https://raw.githubusercontent.com/luke-hopkins/craft-order-samples/master/CHANGELOG.md",
+        "components": {
+            "sampleRequest": "lukehopkins\\ordersamples\\services\\SampleRequest"
+        },
+        "class": "lukehopkins\\ordersamples\\SampleRequest"
+    }
+}

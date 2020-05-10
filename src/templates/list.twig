@@ -1,0 +1,35 @@
+{% extends "_layouts/cp" %}
+{% set title = "Sample Orders"|t('order-samples') %}
+
+{% block content %}
+    <table id="menu-list" class="data fullwidth collapsible">
+        <thead>
+            <th scope="col">{{ "Date"|t('order-samples') }}</th>
+            <th scope="col">{{ "Name"|t('order-samples') }}</th>
+            <th scope="col">{{ "Email"|t('order-samples') }}</th>
+            <th scope="col">{{ "Phone"|t('order-samples') }}</th>
+            <th scope="col">{{ "Address"|t('order-samples') }}</th>
+            <th scope="col">{{ "Postcode"|t('order-samples') }}</th>
+            <th scope="col">{{ "Product"|t('order-samples') }}</th>
+        </thead>
+        <tbody>
+        {% if orders is not empty %}
+            {% for order in orders %}
+                <tr>
+                    <td>{{ order.dateCreated|date('d/m/Y H:i') }}</td>
+                    <td>{{ order.name }}</td>
+                    <td>{{ order.email }}</td>
+                    <td>{{ order.phone }}</td>
+                    <td>{{ order.address }}</td>
+                    <td>{{ order.postcode }}</td>
+                    <td>{{ order.product_name }}</td>
+                </tr>
+            {% endfor %}
+        {% else %}
+            <tr>
+                <td>No samples have been ordered yet.</td>
+            </tr>
+        {% endif %}
+        </tbody>
+    </table>
+{% endblock %}

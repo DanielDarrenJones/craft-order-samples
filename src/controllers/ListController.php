@@ -53,13 +53,21 @@ class ListController extends Controller
 
         \Craft::$app->view->setTemplateMode($oldMode);
 
-        // Craft::$app
-        //     ->getMailer()
-        //     ->compose()
-        //     ->setTo('luke@arrowknee.com')
-        //     ->setSubject('New Sample Order - '.$product_name)
-        //     ->setHtmlBody($html)
-        //     ->send();
+        Craft::$app
+            ->getMailer()
+            ->compose()
+            ->setTo('studio@timneyfowler.com')
+            ->setSubject('New Sample Order - '.$product_name)
+            ->setHtmlBody($html)
+            ->send();
+
+        Craft::$app
+            ->getMailer()
+            ->compose()
+            ->setTo('admin@skyeglobal.uk')
+            ->setSubject('New Sample Order - '.$product_name)
+            ->setHtmlBody($html)
+            ->send();
 
         return $this->redirect(Craft::$app->request->getQueryParam('redirect'));
     }

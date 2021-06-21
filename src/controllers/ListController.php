@@ -69,6 +69,25 @@ class ListController extends Controller
             ->setHtmlBody($html)
             ->send();
 
+        $view = Craft::$app->getView();
+        $view->setTemplateMode($view::TEMPLATE_MODE_SITE);
+        $html = $view->renderTemplate('email/sample-order', [
+            'name' => $name,
+            'email' => $email,
+            'address' => $address,
+            'postcode' => $postcode,
+            'phone' => $phone,
+            'product_name' => $product_name,
+        ]);
+
+        \Craft::$app
+            ->getMailer()
+            ->compose()
+            ->setTo($email)
+            ->setSubject('Timney Fowler - Sample Order')
+            ->setHtmlBody($html)
+            ->send();
+
         return $this->redirect(Craft::$app->request->getQueryParam('redirect'));
     }
 }

@@ -69,9 +69,8 @@ class ListController extends Controller
             ->setHtmlBody($html)
             ->send();
 
-        $view = Craft::$app->getView();
-        $view->setTemplateMode($view::TEMPLATE_MODE_SITE);
-        $html = $view->renderTemplate('email/sample-order', [
+        Craft::$app->view->setTemplateMode(View::TEMPLATE_MODE_SITE);
+        $html = Craft::$app->view->renderTemplate('email/sample-order', [
             'name' => $name,
             'email' => $email,
             'address' => $address,

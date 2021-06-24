@@ -10,6 +10,7 @@
             <th scope="col">{{ "Address"|t('order-samples') }}</th>
             <th scope="col">{{ "Product"|t('order-samples') }}</th>
             <th scope="col">{{ "Status"|t('order-samples') }}</th>
+            <th scope="col"></th>
         </thead>
         <tbody>
         {% if orders is not empty %}
@@ -18,11 +19,10 @@
                     <td>{{ order.dateCreated|date('d/m/Y H:i') }}</td>
                     <td>{{ order.name }}</td>
                     <td>{{ order.email }}</td>
-                    <td>{{ order.phone }}</td>
                     <td>{{ order.address }}</td>
-                    <td>{{ order.postcode }}</td>
-                    <td>{{ order.product_name }} ({{ $order.product_code }})</td>
-                    <td>{{ order.status }})</td>
+                    <td>{{ order.product_name }} ({{ order.product_code }})</td>
+                    <td>{{ order.status }}</td>
+                    <td>{% if order.status == 'New' %}<a href="{{ url('sample-orders/mark-as-shipped?id=' ~ order.id) }}">Mark as shipped</a>{% endif %}</td>
                 </tr>
             {% endfor %}
         {% else %}

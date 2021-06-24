@@ -2,7 +2,7 @@
     "name": "lukehopkins/order-samples",
     "description": "A plugin for ordering samples",
     "type": "craft-plugin",
-    "version": "1.4.0",
+    "version": "1.5.0",
     "keywords": [
         "craft",
         "cms",

@@ -60,7 +60,7 @@ class SampleRequest extends Plugin
      *
      * @var string
      */
-    public $schemaVersion = '1.0.0';
+    public $schemaVersion = '1.1.0';
 
     /**
      * Set to `true` if the plugin should have a settings view in the control panel.
@@ -116,6 +116,10 @@ class SampleRequest extends Plugin
 
         Event::on(UrlManager::class, UrlManager::EVENT_REGISTER_CP_URL_RULES, function(RegisterUrlRulesEvent $event) {
             $event->rules['sample-orders/list'] = 'order-samples/list/index';
+        });
+
+        Event::on(UrlManager::class, UrlManager::EVENT_REGISTER_CP_URL_RULES, function(RegisterUrlRulesEvent $event) {
+            $event->rules['sample-orders/mark-as-shipped'] = 'order-samples/list/shipped';
         });
 
 

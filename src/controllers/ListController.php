@@ -18,6 +18,17 @@ class ListController extends Controller
         return $this->renderTemplate('order-samples/list', $data);
     }
 
+    public function actionShipped()
+    {
+        $this->requireCpRequest();
+        $id = Craft::$app->request->getQueryParam('id');
+        $order = SampleRequest::$plugin->sampleRequest->getRequest($id);
+        $order->status = 'Shipped';
+        $order->save();
+        $data['orders'] = SampleRequest::$plugin->sampleRequest->getRequests();
+        return $this->renderTemplate('order-samples/list', $data);
+    }
+
     public function actionSave()
     {
         $name = Craft::$app->request->getQueryParam('name');

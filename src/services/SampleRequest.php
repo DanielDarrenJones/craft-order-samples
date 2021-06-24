@@ -49,6 +49,11 @@ class SampleRequest extends Component
         return SampleRequestRecord::find()->orderBy('dateCreated DESC')->all();
     }
 
+    public function getRequest($id)
+    {
+        return SampleRequestRecord::find()->where(['id' => $id])->all()[0];
+    }
+
     public function saveRequest($model)
     {
         $record = new SampleRequestRecord();

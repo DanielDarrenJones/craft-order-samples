@@ -36,11 +36,13 @@ class SampleRequest extends Model
      * @var string
      */
     public $email = '';
+    public $product_code = '';
     public $product_name = '';
     public $name = '';
     public $address = '';
     public $postcode = '';
     public $phone = '';
+    public $status = '';
 
     // Public Methods
     // =========================================================================
@@ -63,7 +65,8 @@ class SampleRequest extends Model
             ['address', 'string'],
             ['postcode', 'string'],
             ['phone', 'string'],            
-            ['product_name', 'string'],
+            ['product_code', 'string'],
+            ['status', 'string'],
         ];
     }
 }

@@ -107,11 +107,13 @@ class Install extends Migration
                     'dateUpdated' => $this->dateTime()->notNull(),
                     'uid' => $this->uid(),
                     'email' => $this->string(255)->notNull()->defaultValue(''),
+                    'product_code' => $this->string(255)->notNull()->defaultValue(''),
                     'product_name' => $this->string(255)->notNull()->defaultValue(''),
                     'name' => $this->string(255)->notNull()->defaultValue(''),
                     'address' => $this->string(255)->notNull()->defaultValue(''),
                     'postcode' => $this->string(20)->notNull()->defaultValue(''),
                     'phone' => $this->string(255)->notNull()->defaultValue(''),
+                    'status' => $this->string(12)->notNull()->defaultValue('New'),
                 ]
             );
         }

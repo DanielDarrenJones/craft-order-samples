@@ -7,10 +7,9 @@
             <th scope="col">{{ "Date"|t('order-samples') }}</th>
             <th scope="col">{{ "Name"|t('order-samples') }}</th>
             <th scope="col">{{ "Email"|t('order-samples') }}</th>
-            <th scope="col">{{ "Phone"|t('order-samples') }}</th>
             <th scope="col">{{ "Address"|t('order-samples') }}</th>
-            <th scope="col">{{ "Postcode"|t('order-samples') }}</th>
             <th scope="col">{{ "Product"|t('order-samples') }}</th>
+            <th scope="col">{{ "Status"|t('order-samples') }}</th>
         </thead>
         <tbody>
         {% if orders is not empty %}
@@ -22,7 +21,8 @@
                     <td>{{ order.phone }}</td>
                     <td>{{ order.address }}</td>
                     <td>{{ order.postcode }}</td>
-                    <td>{{ order.product_name }}</td>
+                    <td>{{ order.product_name }} ({{ $order.product_code }})</td>
+                    <td>{{ order.status }})</td>
                 </tr>
             {% endfor %}
         {% else %}

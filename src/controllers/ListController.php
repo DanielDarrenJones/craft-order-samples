@@ -26,6 +26,7 @@ class ListController extends Controller
         $postcode = Craft::$app->request->getQueryParam('postcode');
         $phone = Craft::$app->request->getQueryParam('phone');
         $product_name = Craft::$app->request->getQueryParam('product_name');
+        $product_code = Craft::$app->request->getQueryParam('product_code');
 
         $model = new SampleRequestModel();
         $model->setAttributes([
@@ -35,6 +36,8 @@ class ListController extends Controller
             'postcode' => $postcode,
             'phone' => $phone,
             'product_name' => $product_name,
+            'product_code' => $product_code,
+            'status' => 'New'
         ]);
         SampleRequest::$plugin->sampleRequest->saveRequest($model);
 
@@ -49,6 +52,8 @@ class ListController extends Controller
             'postcode' => $postcode,
             'phone' => $phone,
             'product_name' => $product_name,
+            'product_code' => $product_code,
+            'status' => 'New'
         ]);
 
         \Craft::$app->view->setTemplateMode($oldMode);
@@ -57,7 +62,7 @@ class ListController extends Controller
             ->getMailer()
             ->compose()
             ->setTo('studio@timneyfowler.com')
-            ->setSubject('New Sample Order - '.$product_name)
+            ->setSubject('New Sample Order - '.$product_name.' ('.$product_code.')')
             ->setHtmlBody($html)
             ->send();
 
@@ -65,7 +70,7 @@ class ListController extends Controller
             ->getMailer()
             ->compose()
             ->setTo('admin@skyeglobal.uk')
-            ->setSubject('New Sample Order - '.$product_name)
+            ->setSubject('New Sample Order - '.$product_name.' ('.$product_code.')')
             ->setHtmlBody($html)
             ->send();
 
@@ -77,6 +82,8 @@ class ListController extends Controller
             'postcode' => $postcode,
             'phone' => $phone,
             'product_name' => $product_name,
+            'product_code' => $product_code,
+            'status' => 'New'
         ]);
 
         \Craft::$app

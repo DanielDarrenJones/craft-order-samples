@@ -72,15 +72,7 @@ class ListController extends Controller
         Craft::$app
             ->getMailer()
             ->compose()
-            ->setTo('studio@timneyfowler.com')
-            ->setSubject('New Sample Order - '.$product_name.' ('.$product_code.')')
-            ->setHtmlBody($html)
-            ->send();
-
-        Craft::$app
-            ->getMailer()
-            ->compose()
-            ->setTo('admin@skyeglobal.uk')
+            ->setTo('help@timneyfowler.com')
             ->setSubject('New Sample Order - '.$product_name.' ('.$product_code.')')
             ->setHtmlBody($html)
             ->send();

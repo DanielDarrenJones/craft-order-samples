@@ -17,10 +17,7 @@ class m210624_200847_add_product_code_and_status extends Migration
     {
         // Place migration code here...
         $this->addColumn('sample_orders', 'product_code', 'string');
-        $this->addColumn('sample_orders', 'status', [
-            'column' => 'string',
-            'default' => 'New'
-        ]);
+        $this->addColumn('sample_orders', 'status', $this->string()->defaultValue('New'));
     }
 
     /**

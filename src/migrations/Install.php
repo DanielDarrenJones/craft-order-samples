@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Email List plugin for Craft CMS 3.x
  *
@@ -95,7 +96,7 @@ class Install extends Migration
     {
         $tablesCreated = false;
 
-    // emaillist_email table
+        // emaillist_email table
         $tableSchema = Craft::$app->db->schema->getTableSchema('sample_orders');
         if ($tableSchema === null) {
             $tablesCreated = true;
@@ -111,6 +112,8 @@ class Install extends Migration
                     'product_name' => $this->string(255)->notNull()->defaultValue(''),
                     'name' => $this->string(255)->notNull()->defaultValue(''),
                     'address' => $this->string(255)->notNull()->defaultValue(''),
+                    'address2' => $this->string(255)->notNull()->defaultValue(''),
+                    'address3' => $this->string(255)->notNull()->defaultValue(''),
                     'postcode' => $this->string(20)->notNull()->defaultValue(''),
                     'phone' => $this->string(255)->notNull()->defaultValue(''),
                     'status' => $this->string(12)->notNull()->defaultValue('New'),
@@ -128,7 +131,6 @@ class Install extends Migration
      */
     protected function createIndexes()
     {
-
     }
 
     /**
@@ -156,7 +158,7 @@ class Install extends Migration
      */
     protected function removeTables()
     {
-    // emaillist_email table
+        // emaillist_email table
         $this->dropTableIfExists('sample_orders');
     }
 }

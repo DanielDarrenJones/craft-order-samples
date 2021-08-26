@@ -57,34 +57,8 @@ class ListController extends Controller
         ]);
         SampleRequest::$plugin->sampleRequest->saveRequest($model);
 
-        $oldMode = \Craft::$app->view->getTemplateMode();
-        \Craft::$app->view->setTemplateMode(View::TEMPLATE_MODE_CP);
+        \Craft::$app->view->setTemplateMode(View::TEMPLATE_MODE_SITE);
 
-        $html = $this->renderTemplate('order-samples/email', [
-            'date' => date('d/m/Y - H:i'),
-            'name' => $name,
-            'email' => $email,
-            'address' => $address,
-            'address2' => $address2,
-            'address3' => $address3,
-            'postcode' => $postcode,
-            'phone' => $phone,
-            'product_name' => $product_name,
-            'product_code' => $product_code,
-            'status' => 'New'
-        ]);
-
-        \Craft::$app->view->setTemplateMode($oldMode);
-
-        Craft::$app
-            ->getMailer()
-            ->compose()
-            ->setTo('help@timneyfowler.com')
-            ->setSubject('New Sample Order - ' . $product_name . ' (' . $product_code . ')')
-            ->setHtmlBody($html)
-            ->send();
-
-        Craft::$app->view->setTemplateMode(View::TEMPLATE_MODE_SITE);
         $html = Craft::$app->view->renderTemplate('email/sample-order', [
             'name' => $name,
             'email' => $email,
@@ -102,6 +76,7 @@ class ListController extends Controller
             ->getMailer()
             ->compose()
             ->setTo($email)
+            ->setBcc('help@timneyfowler.com')
             ->setSubject('Timney Fowler - Sample Order')
             ->setHtmlBody($html)
             ->send();

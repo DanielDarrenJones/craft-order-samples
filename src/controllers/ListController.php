@@ -1,4 +1,5 @@
 <?php
+
 namespace lukehopkins\ordersamples\controllers;
 
 use Craft;
@@ -34,6 +35,8 @@ class ListController extends Controller
         $name = Craft::$app->request->getQueryParam('name');
         $email = Craft::$app->request->getQueryParam('email');
         $address = Craft::$app->request->getQueryParam('address');
+        $address2 = Craft::$app->request->getQueryParam('address-2');
+        $address3 = Craft::$app->request->getQueryParam('address-3');
         $postcode = Craft::$app->request->getQueryParam('postcode');
         $phone = Craft::$app->request->getQueryParam('phone');
         $product_name = Craft::$app->request->getQueryParam('product_name');
@@ -44,6 +47,8 @@ class ListController extends Controller
             'name' => $name,
             'email' => $email,
             'address' => $address,
+            'address2' => $address2,
+            'address3' => $address3,
             'postcode' => $postcode,
             'phone' => $phone,
             'product_name' => $product_name,
@@ -60,6 +65,8 @@ class ListController extends Controller
             'name' => $name,
             'email' => $email,
             'address' => $address,
+            'address2' => $address2,
+            'address3' => $address3,
             'postcode' => $postcode,
             'phone' => $phone,
             'product_name' => $product_name,
@@ -73,7 +80,7 @@ class ListController extends Controller
             ->getMailer()
             ->compose()
             ->setTo('help@timneyfowler.com')
-            ->setSubject('New Sample Order - '.$product_name.' ('.$product_code.')')
+            ->setSubject('New Sample Order - ' . $product_name . ' (' . $product_code . ')')
             ->setHtmlBody($html)
             ->send();
 
@@ -82,6 +89,8 @@ class ListController extends Controller
             'name' => $name,
             'email' => $email,
             'address' => $address,
+            'address2' => $address2,
+            'address3' => $address3,
             'postcode' => $postcode,
             'phone' => $phone,
             'product_name' => $product_name,

@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Email List plugin for Craft CMS 3.x
  *
@@ -40,6 +41,8 @@ class SampleRequest extends Model
     public $product_name = '';
     public $name = '';
     public $address = '';
+    public $address2 = '';
+    public $address3 = '';
     public $postcode = '';
     public $phone = '';
     public $status = '';
@@ -63,8 +66,10 @@ class SampleRequest extends Model
             ['name', 'string'],
             ['email', 'string'],
             ['address', 'string'],
+            ['address2', 'string'],
+            ['address3', 'string'],
             ['postcode', 'string'],
-            ['phone', 'string'],            
+            ['phone', 'string'],
             ['product_name', 'string'],
             ['product_code', 'string'],
             ['status', 'string'],

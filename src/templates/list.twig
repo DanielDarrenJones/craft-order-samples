@@ -7,7 +7,9 @@
             <th scope="col">{{ "Date"|t('order-samples') }}</th>
             <th scope="col">{{ "Name"|t('order-samples') }}</th>
             <th scope="col">{{ "Email"|t('order-samples') }}</th>
-            <th scope="col">{{ "Address"|t('order-samples') }}</th>
+            <th scope="col">{{ "Address 1"|t('order-samples') }}</th>
+            <th scope="col">{{ "Address 2"|t('order-samples') }}</th>
+            <th scope="col">{{ "Address 3"|t('order-samples') }}</th>
             <th scope="col">{{ "Product"|t('order-samples') }}</th>
             <th scope="col">{{ "Status"|t('order-samples') }}</th>
             <th scope="col"></th>
@@ -20,6 +22,8 @@
                     <td>{{ order.name }}</td>
                     <td>{{ order.email }}</td>
                     <td>{{ order.address }}</td>
+                    <td>{{ order.address2 }}</td>
+                    <td>{{ order.address3 }}</td>
                     <td>{{ order.product_name }} ({{ order.product_code }})</td>
                     <td>{{ order.status }}</td>
                     <td>{% if order.status == 'New' %}<a href="{{ url('sample-orders/mark-as-shipped?id=' ~ order.id) }}">Mark as shipped</a>{% endif %}</td>

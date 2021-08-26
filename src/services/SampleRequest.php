@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Email List plugin for Craft CMS 3.x
  *
@@ -60,6 +61,8 @@ class SampleRequest extends Component
         $record->name = $model->name;
         $record->email = $model->email;
         $record->address = $model->address;
+        $record->address2 = $model->address2;
+        $record->address3 = $model->address3;
         $record->postcode = $model->postcode;
         $record->phone = $model->phone;
         $record->product_name = $model->product_name;

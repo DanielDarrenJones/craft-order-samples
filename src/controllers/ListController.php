@@ -35,8 +35,8 @@ class ListController extends Controller
         $name = Craft::$app->request->getQueryParam('name');
         $email = Craft::$app->request->getQueryParam('email');
         $address = Craft::$app->request->getQueryParam('address');
-        $address2 = Craft::$app->request->getQueryParam('address-2');
-        $address3 = Craft::$app->request->getQueryParam('address-3');
+        $address2 = Craft::$app->request->getQueryParam('address2');
+        $address3 = Craft::$app->request->getQueryParam('address3');
         $postcode = Craft::$app->request->getQueryParam('postcode');
         $phone = Craft::$app->request->getQueryParam('phone');
         $product_name = Craft::$app->request->getQueryParam('product_name');

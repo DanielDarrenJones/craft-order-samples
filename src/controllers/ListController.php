@@ -38,6 +38,7 @@ class ListController extends Controller
         $address2 = Craft::$app->request->getQueryParam('address2');
         $address3 = Craft::$app->request->getQueryParam('address3');
         $postcode = Craft::$app->request->getQueryParam('postcode');
+        $country = Craft::$app->request->getQueryParam('country');
         $phone = Craft::$app->request->getQueryParam('phone');
         $product_name = Craft::$app->request->getQueryParam('product_name');
         $product_code = Craft::$app->request->getQueryParam('product_code');
@@ -50,6 +51,7 @@ class ListController extends Controller
             'address2' => $address2,
             'address3' => $address3,
             'postcode' => $postcode,
+            'country' => $country,
             'phone' => $phone,
             'product_name' => $product_name,
             'product_code' => $product_code,
@@ -66,6 +68,7 @@ class ListController extends Controller
             'address2' => $address2,
             'address3' => $address3,
             'postcode' => $postcode,
+            'country' => $country,
             'phone' => $phone,
             'product_name' => $product_name,
             'product_code' => $product_code,

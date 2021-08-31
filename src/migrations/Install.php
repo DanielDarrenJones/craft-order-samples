@@ -115,6 +115,7 @@ class Install extends Migration
                     'address2' => $this->string(255)->notNull()->defaultValue(''),
                     'address3' => $this->string(255)->notNull()->defaultValue(''),
                     'postcode' => $this->string(20)->notNull()->defaultValue(''),
+                    'country' => $this->string(255)->notNull()->defaultValue(''),
                     'phone' => $this->string(255)->notNull()->defaultValue(''),
                     'status' => $this->string(12)->notNull()->defaultValue('New'),
                 ]

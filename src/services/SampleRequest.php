@@ -64,6 +64,7 @@ class SampleRequest extends Component
         $record->address2 = $model->address2;
         $record->address3 = $model->address3;
         $record->postcode = $model->postcode;
+        $record->country = $model->country;
         $record->phone = $model->phone;
         $record->product_name = $model->product_name;
         $record->product_code = $model->product_code;

@@ -69,6 +69,7 @@ class SampleRequest extends Model
             ['address2', 'string'],
             ['address3', 'string'],
             ['postcode', 'string'],
+            ['country', 'string'],
             ['phone', 'string'],
             ['product_name', 'string'],
             ['product_code', 'string'],

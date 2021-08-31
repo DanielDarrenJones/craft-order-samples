@@ -44,6 +44,7 @@ class SampleRequest extends Model
     public $address2 = '';
     public $address3 = '';
     public $postcode = '';
+    public $country = '';
     public $phone = '';
     public $status = '';
 

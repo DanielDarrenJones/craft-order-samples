@@ -69,7 +69,7 @@ class SampleRequest extends Component
         $record->phone = $model->phone;
         $record->status = $model->status;
         $save = $record->save();
-        return $save;
+        return $record;
     }
 
     public function saveProduct($model)
@@ -79,6 +79,6 @@ class SampleRequest extends Component
         $record->product_name = $model->product_name;
         $record->product_code = $model->product_code;
         $save = $record->save();
-        return $save;
+        return $record;
     }
 }

@@ -33,7 +33,7 @@ class ListController extends Controller
 
     public function actionSave()
     {
-        \Craft::$dd(Craft::$app->request->queryParams());
+        \Craft::dd(Craft::$app->request->queryParams());
 
         $name = Craft::$app->request->getQueryParam('name');
         $email = Craft::$app->request->getQueryParam('email');

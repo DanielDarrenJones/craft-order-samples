@@ -28,16 +28,16 @@
                     </td>
 
                     <td>
-                        {{ order.product_name }} <br> 
-                        {{ order.product_code }}
-
-                        <br>
-                        <br>
-                        <br>
+                        {% if order.product_name or order.product_code %}
+                            {{ order.product_name }} ({{ order.product_code }})
+                            <br>
+                            <br>
+                        {% endif %}
 
                         {% for product in order.getProducts().all() %}
-                            {{ product.product_name }} <br> 
-                            {{ product.product_code }}
+                            {{ product.product_name }} ({{ product.product_code }})
+                            <br>
+                            <br>
                         {% endfor %}
                     </td>
                     <td>{{ order.status }}</td>

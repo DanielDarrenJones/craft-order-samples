@@ -35,7 +35,7 @@
                         <br>
                         <br>
 
-                        {% for product in order.getProducts() %}
+                        {% for product in order.getProducts()->all() %}
                             {{ product.product_name }} <br> 
                             {{ product.product_code }}
                         {% endfor %}

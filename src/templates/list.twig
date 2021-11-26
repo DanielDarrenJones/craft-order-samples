@@ -28,17 +28,15 @@
                     </td>
 
                     <td>
+                        <ol>
                         {% if order.product_name or order.product_code %}
-                            {{ order.product_name }} ({{ order.product_code }})
-                            <br>
-                            <br>
+                            <li>{{ order.product_name }} ({{ order.product_code }})</li>
                         {% endif %}
 
                         {% for product in order.getProducts().all() %}
-                            {{ product.product_name }} ({{ product.product_code }})
-                            <br>
-                            <br>
+                            <li>{{ product.product_name }} ({{ product.product_code }})</li>
                         {% endfor %}
+                        </ol>
                     </td>
                     <td>{{ order.status }}</td>
                     <td>{% if order.status == 'New' %}<a href="{{ url('sample-orders/mark-as-shipped?id=' ~ order.id) }}">Mark as shipped</a>{% endif %}</td>

@@ -31,7 +31,7 @@ use yii\db\ActiveQueryInterface;
  * @package   EmailList
  * @since     1.0.0
  */
-class SampleRequest extends ActiveRecord
+class SampleRequestProduct extends ActiveRecord
 {
     // Public Static Methods
     // =========================================================================
@@ -50,11 +50,11 @@ class SampleRequest extends ActiveRecord
      */
     public static function tableName()
     {
-        return 'sample_orders';
+        return 'sample_orders_products';
     }
 
-    public function getItems(): ActiveQueryInterface
+    public function getRequest(): ActiveQueryInterface
     {
-        return $this->hasMany(SampleRequestProduct::class, ['requestId' => 'id']);
+        return $this->hasOne(SampleRequest::class, ['id' => 'requestId']);
     }
 }

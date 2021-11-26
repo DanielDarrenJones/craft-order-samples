@@ -13,7 +13,6 @@ namespace lukehopkins\ordersamples\services;
 
 use Craft;
 use craft\base\Component;
-use lukehopkins\ordersamples\records\SampleRequest as SampleRequestRecord;
 use lukehopkins\ordersamples\records\SampleRequestProduct as SampleRequestProductRecord;
 
 /**
@@ -45,37 +44,9 @@ class SampleRequest extends Component
      * @return mixed
      */
 
-
-    public function getRequests()
-    {
-        return SampleRequestRecord::find()->orderBy('dateCreated DESC')->all();
-    }
-
-    public function getRequest($id)
-    {
-        return SampleRequestRecord::find()->where(['id' => $id])->all()[0];
-    }
-
     public function saveRequest($model)
     {
-        $record = new SampleRequestRecord();
-        $record->name = $model->name;
-        $record->email = $model->email;
-        $record->address = $model->address;
-        $record->address2 = $model->address2;
-        $record->address3 = $model->address3;
-        $record->postcode = $model->postcode;
-        $record->country = $model->country;
-        $record->phone = $model->phone;
-        $record->status = $model->status;
-        $save = $record->save();
-        return $save;
-    }
-
-    public function saveProduct($model)
-    {
         $record = new SampleRequestProductRecord();
-        $record->requestId = $model->requestId;
         $record->product_name = $model->product_name;
         $record->product_code = $model->product_code;
         $save = $record->save();

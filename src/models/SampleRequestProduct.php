@@ -26,7 +26,7 @@ use craft\base\Model;
  * @package   EmailList
  * @since     1.0.0
  */
-class SampleRequest extends Model
+class SampleRequestProduct extends Model
 {
     // Public Properties
     // =========================================================================
@@ -36,15 +36,9 @@ class SampleRequest extends Model
      *
      * @var string
      */
-    public $email = '';
-    public $name = '';
-    public $address = '';
-    public $address2 = '';
-    public $address3 = '';
-    public $postcode = '';
-    public $country = '';
-    public $phone = '';
-    public $status = '';
+    public $requestId = '';
+    public $product_code = '';
+    public $product_name = '';
 
     // Public Methods
     // =========================================================================
@@ -62,15 +56,9 @@ class SampleRequest extends Model
     public function rules()
     {
         return [
-            ['name', 'string'],
-            ['email', 'string'],
-            ['address', 'string'],
-            ['address2', 'string'],
-            ['address3', 'string'],
-            ['postcode', 'string'],
-            ['country', 'string'],
-            ['phone', 'string'],
-            ['status', 'string'],
+            ['requestId', 'integer'],
+            ['product_code', 'string'],
+            ['product_name', 'string'],
         ];
     }
 }

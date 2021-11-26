@@ -6,6 +6,7 @@ use Craft;
 use craft\web\Controller;
 use lukehopkins\ordersamples\SampleRequest;
 use lukehopkins\ordersamples\models\SampleRequest as SampleRequestModel;
+use lukehopkins\ordersamples\models\SampleRequestProduct as SampleRequestProductModel;
 use craft\web\View;
 
 class ListController extends Controller
@@ -32,6 +33,8 @@ class ListController extends Controller
 
     public function actionSave()
     {
+        \Craft::$dd(Craft::$app->request->queryParams());
+
         $name = Craft::$app->request->getQueryParam('name');
         $email = Craft::$app->request->getQueryParam('email');
         $address = Craft::$app->request->getQueryParam('address');
@@ -40,9 +43,12 @@ class ListController extends Controller
         $postcode = Craft::$app->request->getQueryParam('postcode');
         $country = Craft::$app->request->getQueryParam('country');
         $phone = Craft::$app->request->getQueryParam('phone');
+
+
         $product_name = Craft::$app->request->getQueryParam('product_name');
         $product_code = Craft::$app->request->getQueryParam('product_code');
 
+        // Create the request
         $model = new SampleRequestModel();
         $model->setAttributes([
             'name' => $name,
@@ -53,11 +59,18 @@ class ListController extends Controller
             'postcode' => $postcode,
             'country' => $country,
             'phone' => $phone,
-            'product_name' => $product_name,
-            'product_code' => $product_code,
             'status' => 'New'
         ]);
-        SampleRequest::$plugin->sampleRequest->saveRequest($model);
+        $record = SampleRequest::$plugin->sampleRequest->saveRequest($model);
+
+        // Loop through the products and save them to the request
+        $model = new SampleRequestProductModel();
+        $model->setAttributes([
+            'requestId' => $record->id,
+            'product_name' => $product_name,
+            'product_code' => $product_code,
+        ]);
+        $record = SampleRequest::$plugin->sampleRequest->saveRequest($model);
 
         \Craft::$app->view->setTemplateMode(View::TEMPLATE_MODE_SITE);
 
@@ -70,9 +83,12 @@ class ListController extends Controller
             'postcode' => $postcode,
             'country' => $country,
             'phone' => $phone,
-            'product_name' => $product_name,
-            'product_code' => $product_code,
-            'status' => 'New'
+            'status' => 'New',
+
+            'products' => [
+                'product_name' => $product_name,
+                'product_code' => $product_code,
+            ]
         ]);
 
         \Craft::$app

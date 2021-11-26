@@ -47,8 +47,8 @@ class ListController extends Controller
         $products = Craft::$app->request->getQueryParam('products');
 
         // Create the request
-        $model = new SampleRequestModel();
-        $model->setAttributes([
+        $recordModel = new SampleRequestModel();
+        $recordModel->setAttributes([
             'name' => $name,
             'email' => $email,
             'address' => $address,
@@ -59,19 +59,19 @@ class ListController extends Controller
             'phone' => $phone,
             'status' => 'New'
         ]);
-        $record = SampleRequest::$plugin->sampleRequest->saveRequest($model);
+        $record = SampleRequest::$plugin->sampleRequest->saveRequest($recordModel);
 
         // \Craft::dd($record);
 
         // Loop through the products and save them to the request
         foreach ($products as $product) {
-            $model = new SampleRequestProductModel();
-            $model->setAttributes([
+            $productModel = new SampleRequestProductModel();
+            $productModel->setAttributes([
                 'requestId' => $record->id,
                 'product_name' => $product['name'],
                 'product_code' => $product['code'],
             ]);
-            $record = SampleRequest::$plugin->sampleRequest->saveRequest($model);
+            SampleRequest::$plugin->sampleRequest->saveProduct($productModel);
         }
 
         \Craft::dd($record);
@@ -91,8 +91,8 @@ class ListController extends Controller
             'status' => 'New',
 
             'products' => [
-                'product_name' => $product_name,
-                'product_code' => $product_code,
+                'product_name' => "",
+                'product_code' => "",
             ]
         ]);
 

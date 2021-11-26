@@ -61,7 +61,7 @@ class ListController extends Controller
         ]);
         $record = SampleRequest::$plugin->sampleRequest->saveRequest($model);
 
-        \Craft::dd($record);
+        // \Craft::dd($record);
 
         // Loop through the products and save them to the request
         foreach ($products as $product) {

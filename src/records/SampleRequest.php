@@ -53,7 +53,7 @@ class SampleRequest extends ActiveRecord
         return 'sample_orders';
     }
 
-    public function getItems(): ActiveQueryInterface
+    public function getProducts(): ActiveQueryInterface
     {
         return $this->hasMany(SampleRequestProduct::class, ['requestId' => 'id']);
     }

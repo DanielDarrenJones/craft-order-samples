@@ -30,6 +30,15 @@
                     <td>
                         {{ order.product_name }} <br> 
                         {{ order.product_code }}
+
+                        <br>
+                        <br>
+                        <br>
+
+                        {% for product in order.getProducts() %}
+                            {{ product.product_name }} <br> 
+                            {{ product.product_code }}
+                        {% endfor %}
                     </td>
                     <td>{{ order.status }}</td>
                     <td>{% if order.status == 'New' %}<a href="{{ url('sample-orders/mark-as-shipped?id=' ~ order.id) }}">Mark as shipped</a>{% endif %}</td>

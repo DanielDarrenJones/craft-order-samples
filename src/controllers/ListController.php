@@ -33,7 +33,6 @@ class ListController extends Controller
 
     public function actionSave()
     {
-        \Craft::dd(Craft::$app->request->getQueryParams());
 
         $name = Craft::$app->request->getQueryParam('name');
         $email = Craft::$app->request->getQueryParam('email');
@@ -45,8 +44,7 @@ class ListController extends Controller
         $phone = Craft::$app->request->getQueryParam('phone');
 
 
-        $product_name = Craft::$app->request->getQueryParam('product_name');
-        $product_code = Craft::$app->request->getQueryParam('product_code');
+        $products = Craft::$app->request->getQueryParam('products');
 
         // Create the request
         $model = new SampleRequestModel();
@@ -64,13 +62,18 @@ class ListController extends Controller
         $record = SampleRequest::$plugin->sampleRequest->saveRequest($model);
 
         // Loop through the products and save them to the request
-        $model = new SampleRequestProductModel();
-        $model->setAttributes([
-            'requestId' => $record->id,
-            'product_name' => $product_name,
-            'product_code' => $product_code,
-        ]);
-        $record = SampleRequest::$plugin->sampleRequest->saveRequest($model);
+        foreach ($products as $product) {
+            $model = new SampleRequestProductModel();
+            $model->setAttributes([
+                'requestId' => $record->id,
+                'product_name' => $product['name'],
+                'product_code' => $product['code'],
+            ]);
+            $record = SampleRequest::$plugin->sampleRequest->saveRequest($model);
+        }
+
+        \Craft::dd($record);
+
 
         \Craft::$app->view->setTemplateMode(View::TEMPLATE_MODE_SITE);
 

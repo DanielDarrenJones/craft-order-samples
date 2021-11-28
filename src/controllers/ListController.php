@@ -77,33 +77,20 @@ class ListController extends Controller
         // \Craft::dd($record);
 
 
-        // \Craft::$app->view->setTemplateMode(View::TEMPLATE_MODE_SITE);
+        \Craft::$app->view->setTemplateMode(View::TEMPLATE_MODE_SITE);
 
-        // $html = Craft::$app->view->renderTemplate('email/sample-order', [
-        //     'name' => $name,
-        //     'email' => $email,
-        //     'address' => $address,
-        //     'address2' => $address2,
-        //     'address3' => $address3,
-        //     'postcode' => $postcode,
-        //     'country' => $country,
-        //     'phone' => $phone,
-        //     'status' => 'New',
+        $html = Craft::$app->view->renderTemplate('email/sample-order', [
+            'record' => $record,
+        ]);
 
-        //     'products' => [
-        //         'product_name' => "",
-        //         'product_code' => "",
-        //     ]
-        // ]);
-
-        // \Craft::$app
-        //     ->getMailer()
-        //     ->compose()
-        //     ->setTo($email)
-        //     ->setBcc('help@timneyfowler.com')
-        //     ->setSubject('Timney Fowler - Sample Order')
-        //     ->setHtmlBody($html)
-        //     ->send();
+        \Craft::$app
+            ->getMailer()
+            ->compose()
+            ->setTo($email)
+            ->setBcc('help@timneyfowler.com')
+            ->setSubject('Timney Fowler - Sample Order')
+            ->setHtmlBody($html)
+            ->send();
 
         return $this->redirect(Craft::$app->request->getQueryParam('redirect'));
     }

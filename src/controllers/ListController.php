@@ -87,7 +87,7 @@ class ListController extends Controller
             ->getMailer()
             ->compose()
             ->setTo($email)
-            ->setBcc('dan@strattons.com')
+            ->setBcc('hey@ddj.email')
             // ->setBcc('help@timneyfowler.com')
             ->setSubject('Timney Fowler - Sample Order')
             ->setHtmlBody($html)

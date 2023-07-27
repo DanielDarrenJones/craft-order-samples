@@ -2,7 +2,7 @@
     "name": "lukehopkins/order-samples",
     "description": "A plugin for ordering samples",
     "type": "craft-plugin",
-    "version": "1.6.0",
+    "version": "2.0.0",
     "keywords": [
         "craft",
         "cms",
@@ -22,11 +22,11 @@
         }
     ],
     "require": {
-        "craftcms/cms": "^3.0.0"
+        "craftcms/cms": "^4.0.0"
     },
     "autoload": {
         "psr-4": {
-          "lukehopkins\\ordersamples\\": "src/"
+            "lukehopkins\\ordersamples\\": "src/"
         }
     },
     "extra": {
@@ -40,5 +40,16 @@
             "sampleRequest": "lukehopkins\\ordersamples\\services\\SampleRequest"
         },
         "class": "lukehopkins\\ordersamples\\SampleRequest"
+    },
+    "minimum-stability": "dev",
+    "prefer-stable": true,
+    "require-dev": {
+        "craftcms/rector": "dev-main"
+    },
+    "config": {
+        "allow-plugins": {
+            "yiisoft/yii2-composer": true,
+            "craftcms/plugin-installer": true
+        }
     }
 }

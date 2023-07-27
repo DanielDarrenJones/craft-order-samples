@@ -61,21 +61,21 @@ class SampleRequest extends Plugin
      *
      * @var string
      */
-    public $schemaVersion = '1.2.0';
+    public string $schemaVersion = '1.2.0';
 
     /**
      * Set to `true` if the plugin should have a settings view in the control panel.
      *
      * @var bool
      */
-    public $hasCpSettings = false;
+    public bool $hasCpSettings = false;
 
     /**
      * Set to `true` if the plugin should have its own section (main nav item) in the control panel.
      *
      * @var bool
      */
-    public $hasCpSection = true;
+    public bool $hasCpSection = true;
 
     public $controllerMap = [
         'list' => ListController::class,
@@ -152,7 +152,7 @@ class SampleRequest extends Plugin
         );
     }
 
-    public function getCpNavItem()
+    public function getCpNavItem(): ?array
     {
         $navItem = parent::getCpNavItem();
         $navItem['url'] = 'sample-orders/list';

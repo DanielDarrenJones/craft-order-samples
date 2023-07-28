@@ -11,7 +11,7 @@ use craft\web\View;
 
 class ListController extends Controller
 {
-    protected $allowAnonymous = true;
+    protected array|int|bool $allowAnonymous = true;
 
     public function actionIndex()
     {

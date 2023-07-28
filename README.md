@@ -1,4 +1,4 @@
-# Email List plugin for Craft CMS 3.x
+# Email List plugin for Craft CMS 4.x
 
 A plugin for saving emails to a list
 

@@ -34,17 +34,17 @@ class ListController extends Controller
     public function actionSave()
     {
 
-        $name = Craft::$app->request->getQueryParam('name');
-        $email = Craft::$app->request->getQueryParam('email');
-        $address = Craft::$app->request->getQueryParam('address');
-        $address2 = Craft::$app->request->getQueryParam('address2');
-        $address3 = Craft::$app->request->getQueryParam('address3');
-        $postcode = Craft::$app->request->getQueryParam('postcode');
-        $country = Craft::$app->request->getQueryParam('country');
-        $phone = Craft::$app->request->getQueryParam('phone');
+        $name = Craft::$app->request->getParam('name');
+        $email = Craft::$app->request->getParam('email');
+        $address = Craft::$app->request->getParam('address');
+        $address2 = Craft::$app->request->getParam('address2');
+        $address3 = Craft::$app->request->getParam('address3');
+        $postcode = Craft::$app->request->getParam('postcode');
+        $country = Craft::$app->request->getParam('country');
+        $phone = Craft::$app->request->getParam('phone');
 
 
-        $products = Craft::$app->request->getQueryParam('products');
+        $products = Craft::$app->request->getParam('products');
 
         // Create the request
         $recordModel = new SampleRequestModel();
@@ -92,6 +92,6 @@ class ListController extends Controller
             ->setHtmlBody($html)
             ->send();
 
-        return $this->redirect(Craft::$app->request->getQueryParam('redirect'));
+        return $this->redirect(Craft::$app->request->getValidatedBodyParam('redirect'));
     }
 }
